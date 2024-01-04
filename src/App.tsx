@@ -1,11 +1,33 @@
 import "./App.css";
 
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RootLayout from "./components/RootLayout";
+import Blog from "./pages/Blog";
+import Feature from "./pages/Feature";
+import HomePage from "./pages/HomePage";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: "blog",
+        element: <Blog />,
+      },
+      {
+        path: "feature",
+        element: <Feature />,
+      },
+    ],
+  },
+]);
+
 function App() {
-  return (
-    <div>
-      <h1 className=" text-center text-3xl mt-5 font-medium">Landing Page</h1>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

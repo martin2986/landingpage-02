@@ -13,6 +13,8 @@ const buttonVariants = cva(
           "bg-transparent text-black border border-gray-400 rounded-sm hover:bg-indigo-600 hover:text-white",
         borderless:
           "bg-transparent text-black underline   inline-flex items-center ",
+        rounded:
+          "rounded-full border border-indigo-600 inline-flex items-center justify-center h-10 w-10",
       },
       size: {
         default: "text-xs md:text-sm  p-2 ",
@@ -31,14 +33,14 @@ interface ButtonProps
     VariantProps<typeof buttonVariants> {}
 
 const Buttons = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant, size, className, title, ...props }, ref) => {
+  ({ variant, size, className, title, children, ...props }, ref) => {
     return (
       <button
         ref={ref}
         className={cn(buttonVariants({ variant, size, className }))}
         {...props}
       >
-        {title}
+        {title} {children}
       </button>
     );
   }

@@ -3,8 +3,8 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontSize: {
-      xxs: "0.4rem",
-      xs: "0.5rem",
+      xxs: "0.5rem",
+      xs: "0.6rem",
       sm: "0.8rem",
       base: "1rem",
       xl: "1.25rem",

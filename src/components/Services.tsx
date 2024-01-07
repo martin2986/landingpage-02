@@ -1,40 +1,72 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Buttons } from "./Buttons";
 import Card from "./Card";
 import SectionTItle from "./SectionTItle";
+import { apartmentData } from "../util/data";
+import { filteredData } from "../util/helperFn";
 
 type ServicesProps = {};
 
 const Services: FC<ServicesProps> = () => {
+  const [selected, setSelected] = useState<string>("");
+
+  const [displayedItems, setDisplayedItems] = useState<{}[]>(
+    apartmentData?.slice(0, 3)
+  );
+  const allData = filteredData(displayedItems, selected);
+  const [showAll, setShowAll] = useState<boolean>(false);
+  const handleClick = (e) => {
+    setSelected(e.target.value);
+  };
+  const handleShowAll = () => {
+    setShowAll(true);
+    setDisplayedItems(apartmentData);
+  };
+
   return (
-    <div className=" ">
-      <div className="mx-auto w-1/2 text-center font-medium">
+    <div className="p-1 md:p-0 container mx-auto">
+      <div className="mx-auto md:w-1/2 text-center font-medium">
         <SectionTItle
           title="Our popular building services"
           description=" Building a next generation collaboration platform to connect renters,
           homeowner, and agents."
         />
-        <div className="flex flex-row gap-5 justify-center mb-8">
-          <Buttons title="House" variant="outline" className="px-6" />
-          <Buttons title="Apartment" variant="outline" className="px-6" />
-          <Buttons title="Villa" variant="outline" className="px-6" />
+        <div className="flex flex-row gap-1 md:gap-5 justify-center mb-8">
+          <Buttons
+            value="House"
+            title="House"
+            variant="outline"
+            className="px-4 `md:px-6"
+            onClick={handleClick}
+          />
+          <Buttons
+            value="Apartment"
+            title="Apartment"
+            variant="outline"
+            className="px-4 md:px-6"
+            onClick={handleClick}
+          />
+          <Buttons
+            value="Villa"
+            title="Villa"
+            variant="outline"
+            className="px-4 md:px-6"
+            onClick={handleClick}
+          />
         </div>
       </div>
-      <div className="flex flex-col md:flex-row gap-5">
-        <Card />
-        <Card />
-        <Card />
+      <div className="text-center w-full mb-16">
+        <Card data={allData} />
+        {!showAll && (
+          <Buttons title="View More Properties" onClick={handleShowAll} />
+        )}
       </div>
 
-      <div className="text-center w-full mb-16">
-        <Buttons title="View More Properties" />
-      </div>
-      <div className=" md:px-16 py-10 bg-indigo-600 mx-auto w-full text-center my-8">
-        {/* <div className="absolute -top-20 -left-20 rounded-full bg-indigo-400 w-52 h-52"></div> */}
-        <h3 className="text-2xl md:text-4xl  text-white font-semibold">
+      <div className=" lg:px-16 md:px-5 p-2 md:py-10 bg-indigo-600 mx-auto w-full text-center my-8">
+        <h3 className="text-base md:text-3xl  text-white font-semibold">
           Our Company Provides services any Town in Our Country
         </h3>
-        <p className="text-white text-sm mb-6">
+        <p className="text-white text-xs md:text-sm mb-6">
           Do i have to record this meeting gain traction, root-and-branch
           review, nor game-plan who's record
         </p>

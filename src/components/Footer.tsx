@@ -11,47 +11,47 @@ type FooterProps = {};
 const company = [
   {
     name: "About",
-    path: "about",
+    path: "/",
   },
   {
     name: "Contact Us",
-    path: "contact",
+    path: "/",
   },
   {
     name: "Support",
-    path: "support",
+    path: "/",
   },
   {
     name: "Careers",
-    path: "careers",
+    path: "/",
   },
 ];
 const quickLinks = [
   {
     name: "Share Location",
-    path: "location",
+    path: "/",
   },
   {
     name: "Property Management",
-    path: "management",
+    path: "/",
   },
   {
     name: "Size Guide",
-    path: "guide",
+    path: "/",
   },
   {
     name: "FAQ",
-    path: "faq",
+    path: "/",
   },
 ];
 const legal = [
   {
     name: "Terms & Condition",
-    path: "terms",
+    path: "/",
   },
   {
     name: "Privacy Policy",
-    path: "policy",
+    path: "/",
   },
 ];
 const Footer: FC<FooterProps> = () => {

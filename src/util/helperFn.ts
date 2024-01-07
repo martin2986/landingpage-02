@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { itemData } from "../util/data";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -15,7 +16,7 @@ export function cns(...classes: []) {
   return classes.filter(Boolean).join(" ");
 }
 
-export function filteredData(appState: [], selected: string) {
+export function filteredData(appState: itemData[], selected: string) {
   let filteredProducts = appState;
 
   if (selected) {

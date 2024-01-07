@@ -30,12 +30,20 @@ const buttonVariants = cva(
 
 interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
+    VariantProps<typeof buttonVariants> {
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  value?: string;
+}
 
 const Buttons = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant, size, className, title, children, ...props }, ref) => {
+  (
+    { variant, size, className, title, children, onClick, value, ...props },
+    ref
+  ) => {
     return (
       <button
+        onClick={onClick}
+        value={value}
         ref={ref}
         className={cn(buttonVariants({ variant, size, className }))}
         {...props}

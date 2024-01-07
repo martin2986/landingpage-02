@@ -48,7 +48,7 @@ const heroTitle = {
     y: 0,
     transition: {
       duration: 1,
-      ...transition,
+      transition,
     },
   },
 };

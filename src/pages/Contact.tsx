@@ -28,7 +28,7 @@ const Contact: FC<ContactProps> = () => {
             </label>
             <textarea
               id="message"
-              // rows="6"
+              rows={6}
               className="block p-2.5 w-full text-sm  bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500  dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
               placeholder="Leave a comment..."
             />

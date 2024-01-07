@@ -1,23 +1,24 @@
 import { FC, useState } from "react";
+import { apartmentData, itemData } from "../util/data";
+import { filteredData } from "../util/helperFn";
 import { Buttons } from "./Buttons";
 import Card from "./Card";
 import SectionTItle from "./SectionTItle";
-import { apartmentData } from "../util/data";
-import { filteredData } from "../util/helperFn";
 
 type ServicesProps = {};
-
 const Services: FC<ServicesProps> = () => {
   const [selected, setSelected] = useState<string>("");
 
-  const [displayedItems, setDisplayedItems] = useState<{}[]>(
+  const [displayedItems, setDisplayedItems] = useState<itemData[]>(
     apartmentData?.slice(0, 3)
   );
   const allData = filteredData(displayedItems, selected);
   const [showAll, setShowAll] = useState<boolean>(false);
-  const handleClick = (e) => {
-    setSelected(e.target.value);
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setSelected((event.target as HTMLButtonElement).value);
   };
+
   const handleShowAll = () => {
     setShowAll(true);
     setDisplayedItems(apartmentData);

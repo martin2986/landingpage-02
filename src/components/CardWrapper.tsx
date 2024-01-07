@@ -1,11 +1,10 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { cn } from "../util/helperFn";
-import { cva } from "class-variance-authority";
+import { VariantProps, cva } from "class-variance-authority";
 
-interface CardWrapperProps {
-  variant: string;
-  size: string;
-  className: string;
+interface CardWrapperProps extends VariantProps<typeof cardVariants> {
+  className?: string;
+  children?: ReactNode;
 }
 
 const cardVariants = cva(
@@ -31,13 +30,13 @@ const CardWrapper: FC<CardWrapperProps> = ({
   variant,
   size,
   className,
+  children,
   ...props
 }) => {
   return (
-    <div
-      className={cn(cardVariants({ variant, size, className }))}
-      {...props}
-    />
+    <div className={cn(cardVariants({ variant, size, className }))} {...props}>
+      {children}
+    </div>
   );
 };
 

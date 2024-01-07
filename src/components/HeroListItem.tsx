@@ -6,9 +6,9 @@ type HeroListItemProps = {
   className?: string;
 };
 
-const HeroListItem: FC<HeroListItemProps> = ({ title, className }) => {
+const HeroListItem: FC<HeroListItemProps> = ({ title }) => {
   return (
-    <div className="text-xs md:text-sm my-3">
+    <div className="text-xxs md:text-sm my-3">
       <div className="inline-flex gap-1 items-center text-nowrap">
         <FaCheckCircle className="text-indigo-600" />
         {title}

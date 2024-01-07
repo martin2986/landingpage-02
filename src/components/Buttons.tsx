@@ -17,7 +17,7 @@ const buttonVariants = cva(
           "rounded-full border border-indigo-600 inline-flex items-center justify-center h-10 w-10",
       },
       size: {
-        default: "text-xs md:text-sm  p-2 ",
+        default: "text-xs md:text-sm p-2 ",
         sm: "px-2 py-1 text-xs md:text-sm min-w-16 md:min-w-22 ",
       },
     },

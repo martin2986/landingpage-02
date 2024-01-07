@@ -10,7 +10,7 @@ type HomeProps = {};
 
 const HomePage: FC<HomeProps> = () => {
   return (
-    <div className="container mx-auto">
+    <div className="">
       <Home />
       <Section
         type="left"

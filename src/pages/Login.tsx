@@ -63,22 +63,28 @@ const Login = () => {
           type="password"
         />
 
-        <Buttons className="w-full mt-5 " disabled={isSubmitting}>
-          {isSubmitting ? "Loading..." : "Log In"}
-        </Buttons>
-        <p className="uppercase my-1 text-xs text-center ">or</p>
-        <div className="flex flex-row items-center justify-between text-sm mt-6">
-          <Link to="/register" className="text-black underline">
-            Sign Up
+        {/* <p className="uppercase my-1 text-xs text-center ">or</p> */}
+        <div className="flex flex-row items-center justify-between text-sm">
+          <Link to="/" className="text-black text-xs">
+            Remember me
           </Link>
           <Link
             to="/"
-            className="font-semibold text-indigo-600 hover:text-indigo-500 hover:scale-105"
+            className="font-semibold text-indigo-600 hover:text-indigo-500 hover:scale-105 text-xs"
           >
-            Forgot password?
+            Forgot your password?
           </Link>
         </div>
+        <Buttons className="w-full mt-5 " disabled={isSubmitting}>
+          {isSubmitting ? "Loading..." : "Log In"}
+        </Buttons>
       </form>
+      <div className="inline-flex gap-3 items-center justify-center w-full mt-5">
+        <p className="text-xs">Don't have an account?</p>
+        <Link to="/register" className="text-xs text-red-400 font-semibold">
+          Sign up
+        </Link>
+      </div>
     </AuthLayout>
   );
 };

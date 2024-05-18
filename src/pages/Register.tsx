@@ -73,15 +73,16 @@ const Register = () => {
           register={register}
           error={errors?.password?.message}
         />
-        <Buttons className="w-full mt-5" disabled={isSubmitting}>
+        <Buttons className="w-full mt-3" disabled={isSubmitting}>
           {isSubmitting ? "Loading..." : "Sign Up"}
         </Buttons>
-        <div className="mt-4">
-          <Link to="/login" className="text-black text-sm">
-            Login Now!
-          </Link>
-        </div>
       </form>
+      <div className="inline-flex gap-3 items-center justify-center w-full mt-5">
+        <p className="text-xs">Already have an account?</p>
+        <Link to="/login" className="text-xs text-red-400 font-semibold">
+          Sign in
+        </Link>
+      </div>
     </AuthLayout>
   );
 };

@@ -1,7 +1,6 @@
 import { FC } from "react";
-import { Buttons } from "../UI/Buttons";
 import HeroListItem from "../components/HeroListItem";
-
+import { Buttons } from "../UI/Buttons";
 import Home from "../components/Home";
 import Section from "../components/Section";
 import SectionTItle from "../components/SectionTItle";

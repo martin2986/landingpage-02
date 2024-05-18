@@ -3,6 +3,7 @@ type PayLoadTypes = {
   username: string;
   email: string;
   profilePhoto: string;
+  id: string;
 };
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
     username: "",
     email: "",
     profilePhoto: "",
+    id: "",
   },
 };
 
@@ -36,6 +38,7 @@ const authSlice = createSlice({
         username: "",
         email: "",
         profilePhoto: "",
+        id: "",
       };
     },
     updateMe(state, action: PayloadAction<PayLoadTypes>) {

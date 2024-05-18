@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Buttons } from "../components/Buttons";
+import { Buttons } from "../UI/Buttons";
 import HeroListItem from "../components/HeroListItem";
 
 import Home from "../components/Home";

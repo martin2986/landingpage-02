@@ -1,7 +1,6 @@
 {
   "extends": [
     "react-app"
-    // "plugin:storybook/recommended"
   ],
   "rules": {
     "react/prop-types": "off"

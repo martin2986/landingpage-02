@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Buttons } from "../components/Buttons";
+import { Buttons } from "../UI/Buttons";
 import HeroListItem from "../components/HeroListItem";
 import { motion } from "framer-motion";
 let easeing: number[] = [0.6, -0.05, 0.01, 0.99];

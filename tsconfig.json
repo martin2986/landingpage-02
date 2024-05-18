@@ -14,13 +14,17 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["./*"]
+    },
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+
+  "include": ["src", "../backend/src/utils/formSchema.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

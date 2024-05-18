@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { buttonVariants } from "./Buttons";
+import { buttonVariants } from "../UI/Buttons";
 
 type NavProps = {};
 

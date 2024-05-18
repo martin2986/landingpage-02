@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren } from "react";
-import { Buttons } from "./Buttons";
+import { Buttons } from "../UI/Buttons";
 import { CardWrapper } from "./CardWrapper";
 import { GoArrowRight } from "react-icons/go";
 import { GoArrowLeft } from "react-icons/go";

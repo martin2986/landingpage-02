@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { apartmentData, itemData } from "../util/data";
 import { filteredData } from "../util/helperFn";
-import { Buttons } from "./Buttons";
+import { Buttons } from "../UI/Buttons";
 import Card from "./Card";
 import SectionTItle from "./SectionTItle";
 

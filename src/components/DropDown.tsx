@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-import { Buttons } from "./Buttons";
+import { Buttons } from "../UI/Buttons";
 
 type DropDownProps = {
   options: string[];

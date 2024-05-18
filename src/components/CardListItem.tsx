@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { itemData } from "../util/data";
-import { Buttons } from "./Buttons";
+import { Buttons } from "../UI/Buttons";
 import { CardWrapper } from "./CardWrapper";
 import { motion } from "framer-motion";
 

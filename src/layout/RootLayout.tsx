@@ -8,11 +8,11 @@ type RootLayoutProps = {
 
 const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
-    <div>
+    <>
       <NavBar />
       {children}
       <Footer />
-    </div>
+    </>
   );
 };
 

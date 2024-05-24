@@ -33,7 +33,7 @@ function ProfilePage() {
           </div>
           <div className="title">
             <h1>My List</h1>
-            <Link to="/add">
+            <Link to="/profile/update">
               <Buttons>Create New Post</Buttons>
             </Link>
           </div>

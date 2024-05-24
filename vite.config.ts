@@ -26,7 +26,6 @@ export default ({ mode }) => {
         "/api": {
           target: url,
           changeOrigin: true,
-          secure: false,
         },
       },
     },

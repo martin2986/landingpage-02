@@ -6,7 +6,9 @@ import { Buttons } from "@/UI/Buttons";
 import Inputs from "@/components/Inputs";
 import AuthLayout from "@/layout/AuthLayout";
 import Notification from "@/UI/Notification";
-import axios from "axios";
+import { useDisPatch } from "@/store/hooks";
+import { authAction } from "@/store/authSlice";
+import { appApi } from "@/util/service";
 const schema = z.object({
   username: z.string(),
   password: z.string().min(6),
@@ -14,6 +16,7 @@ const schema = z.object({
 type formFields = z.infer<typeof schema>;
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDisPatch();
   const {
     register,
     handleSubmit,
@@ -30,8 +33,8 @@ const Login = () => {
 
   const onSubmit: SubmitHandler<formFields> = async (data) => {
     try {
-      const response = await axios.post("/api/auth/signin", data);
-      console.log(response.data);
+      const response = await appApi.post("/auth/signin", data);
+      dispatch(authAction.login(response.data));
       reset();
       navigate("/");
     } catch (err: any) {
@@ -62,8 +65,6 @@ const Login = () => {
           error={errors?.password?.message}
           type="password"
         />
-
-        {/* <p className="uppercase my-1 text-xs text-center ">or</p> */}
         <div className="flex flex-row items-center justify-between text-sm">
           <Link to="/" className="text-black text-xs">
             Remember me
@@ -75,7 +76,10 @@ const Login = () => {
             Forgot your password?
           </Link>
         </div>
-        <Buttons className="w-full mt-5 " disabled={isSubmitting}>
+        <Buttons
+          className={`w-full mt-5  ${isSubmitting ? "bg-indigo-400" : ""} `}
+          disabled={isSubmitting}
+        >
           {isSubmitting ? "Loading..." : "Log In"}
         </Buttons>
       </form>

@@ -7,17 +7,17 @@ function ProfilePage() {
   const { user } = useAppSelector((state) => state.auth);
 
   return (
-    <div className="profilePage">
-      <div className="details">
-        <div className="wrapper">
-          <div className="title">
+    <div className="">
+      <div className="">
+        <div className="">
+          <div className="flex flex-row items-center justify-between ">
             <h1>User Information</h1>
             <Link to="/profile/update">
               <Buttons>Update Profile</Buttons>
             </Link>
           </div>
-          <div className="info">
-            <span>
+          <div className="flex flex-col text-sm">
+            <span className="inline-flex gap-3">
               Avatar:
               <img src={user.profilePhoto || "noavatar.jpg"} alt="" />
             </span>
@@ -27,11 +27,11 @@ function ProfilePage() {
             <span>
               E-mail: <b>{user.email}</b>
             </span>
-            <Buttons variant="outline" className="w-24">
+            <Buttons size="sm" className="w-10 text-white">
               Logout
             </Buttons>
           </div>
-          <div className="title">
+          <div className="flex items-center justify-between">
             <h1>My List</h1>
             <Link to="/profile/update">
               <Buttons>Create New Post</Buttons>

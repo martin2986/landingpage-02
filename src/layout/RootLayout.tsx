@@ -10,7 +10,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
     <>
       <NavBar />
-      <div className="container mx-auto">{children}</div>
+      <div className="min-h-screen"> {children}</div>
       <Footer />
     </>
   );

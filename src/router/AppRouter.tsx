@@ -7,6 +7,7 @@ const HomePage = lazy(() => import("@/pages/HomePage"));
 const Login = lazy(() => import("@/pages/Login"));
 const Contact = lazy(() => import("@/pages/Contact"));
 const Profile = lazy(() => import("@/pages/profile/Profile"));
+const NewPost = lazy(() => import("@/features/userProfile/NewPost"));
 const ProfileUpdate = lazy(
   () => import("@/features/userProfile/profileUpdate")
 );
@@ -22,6 +23,7 @@ const AppRouter = () => {
         <Route element={<ProtectedRoute redirectPath="/" />}>
           <Route element={<Profile />} path="profile" />
           <Route element={<ProfileUpdate />} path="profile/update" />
+          <Route element={<NewPost />} path="profile/new-post" />
         </Route>
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>

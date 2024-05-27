@@ -1,7 +1,8 @@
 import { FC } from "react";
+import { motion } from "framer-motion";
 import { Buttons } from "../UI/Buttons";
 import HeroListItem from "../components/HeroListItem";
-import { motion } from "framer-motion";
+import heroImage from "@/assets/hero.png";
 let easeing: number[] = [0.6, -0.05, 0.01, 0.99];
 
 const fadeInUp = {
@@ -72,7 +73,7 @@ const Home: FC<HomeProps> = () => {
         >
           <motion.h1
             variants={heroTitle}
-            className="text-2xl md:text-5xl font-bold   "
+            className="text-2xl md:text-5xl font-bold"
           >
             Find your dream Home right now
           </motion.h1>
@@ -88,8 +89,8 @@ const Home: FC<HomeProps> = () => {
 
         <motion.div className="flex-initial  ">
           <motion.img
-            src="https://images.unsplash.com/photo-1585129777188-94600bc7b4b3?q=80&w=1254&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
+            src={heroImage}
+            alt="heroImage"
             className=" w-32 md:w-full lg:w-80 h-4/5 md:h-80 object-cover rounded mx-auto"
             initial={{ x: 200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}

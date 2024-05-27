@@ -1,13 +1,15 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import { useAppSelector, useDisPatch } from "@/store/hooks";
 import Notification from "@/UI/Notification";
-import { z } from "zod";
 import { Buttons } from "@/UI/Buttons";
 import Inputs from "@/components/Inputs";
 import { appApi } from "@/util/service";
 import { authAction } from "@/store/authSlice";
+import UploadWidget from "@/components/UploadWidget";
 const schema = z.object({
   username: z.string(),
   email: z.string(),
@@ -16,6 +18,7 @@ const schema = z.object({
 type formFields = z.infer<typeof schema>;
 function ProfileUpdatePage() {
   const { user } = useAppSelector((state) => state.auth);
+  const [avatar, setAvatar] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDisPatch();
   const {
@@ -32,8 +35,14 @@ function ProfileUpdatePage() {
     resolver: zodResolver(schema),
   });
   const onSubmit: SubmitHandler<formFields> = async (data) => {
+    const { email, username, password } = data;
     try {
-      const response = await appApi.patch(`/user/update`, data);
+      const response = await appApi.patch(`/user/update`, {
+        email,
+        username,
+        password,
+        profilePhoto: avatar[0],
+      });
       dispatch(authAction.updateMe(response.data));
       navigate("/profile");
     } catch (err: any) {
@@ -45,16 +54,26 @@ function ProfileUpdatePage() {
   };
 
   return (
-    <>
-      <div className="flex justify-center items-center">
-        <h1>profile photo</h1>
+    <div className="h-full">
+      <h1>profile photo</h1>
+      <div className="flex justify-center items-center h-32 border border-black my-5">
         <img
-          src={user.profilePhoto || "/noavatar.jpg"}
+          src={avatar[0] || user.profilePhoto || "/noavatar.jpg"}
           alt=""
-          className="avatar"
+          className=" w-40 rounded-full"
+        />
+        <UploadWidget
+          uwConfig={{
+            cloudName: process.env.CLOUD_NAME,
+            uploadPreset: "estate",
+            multiple: false,
+            maxImageFileSize: 2000000,
+            folder: "avatars",
+          }}
+          setState={setAvatar}
         />
       </div>
-      <div className="flex justify-center items-center ">
+      <div className="flex justify-center items-center h-full">
         <form onSubmit={handleSubmit(onSubmit)} className=" w-64">
           <h1 className="text-center mb-5">Update Profile</h1>
           <Inputs label="Username" register={register} name="username" />
@@ -72,7 +91,7 @@ function ProfileUpdatePage() {
           )}
         </form>
       </div>
-    </>
+    </div>
   );
 }
 

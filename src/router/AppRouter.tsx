@@ -8,6 +8,7 @@ const Login = lazy(() => import("@/pages/Login"));
 const Contact = lazy(() => import("@/pages/Contact"));
 const Profile = lazy(() => import("@/pages/profile/Profile"));
 const NewPost = lazy(() => import("@/features/userProfile/NewPost"));
+const ListingDetailPage = lazy(() => import("@/pages/ListingDetailPage"));
 const ProfileUpdate = lazy(
   () => import("@/features/userProfile/profileUpdate")
 );
@@ -20,6 +21,7 @@ const AppRouter = () => {
         <Route element={<Register />} path="register" />
         <Route element={<HomePage />} path="/" />
         <Route element={<Contact />} path="contact" />
+        <Route element={<ListingDetailPage />} path="listing/:id" />
         <Route element={<ProtectedRoute redirectPath="/" />}>
           <Route element={<Profile />} path="profile" />
           <Route element={<ProfileUpdate />} path="profile/update" />

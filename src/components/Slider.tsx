@@ -70,7 +70,7 @@ const Slider: FC<SliderProps> = ({ images }) => {
             alt=""
             key={index}
             onClick={() => setImageIndex(index + 1)}
-            className="h-80 md:h-[100px]"
+            className="h-20 md:h-[100px] object-cover "
           />
         ))}
       </div>

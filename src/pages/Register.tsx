@@ -52,34 +52,43 @@ const Register = () => {
         <div className="text-red-500 text-sm mb-4">{errors.root.message}</div>
       )}
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Inputs
-          label="Username"
-          name="username"
-          type="text"
-          register={register}
-          error={errors?.username?.message}
-        />
-        <Inputs
-          name="email"
-          label="Email"
-          type="email"
-          register={register}
-          error={errors?.email?.message}
-        />
-        <Inputs
-          name="password"
-          label="Password"
-          type="password"
-          register={register}
-          error={errors?.password?.message}
-        />
+        <Inputs>
+          <Inputs.Label label="Username" htmlFor="username" />
+          <Inputs.Input
+            name="username"
+            id="username"
+            type="text"
+            register={register}
+            placeholder="Username"
+            error={errors?.username?.message}
+          />
+          <Inputs.Label label="Email" htmlFor="email" />
+          <Inputs.Input
+            name="email"
+            id="email"
+            placeholder="Email"
+            type="email"
+            register={register}
+            error={errors?.email?.message}
+          />
+          <Inputs.Label label="Password" htmlFor="password" />
+          <Inputs.Input
+            name="password"
+            id="password"
+            placeholder="Password"
+            type="password"
+            register={register}
+            error={errors?.password?.message}
+          />
+        </Inputs>
+
         <Buttons className="w-full mt-3" disabled={isSubmitting}>
           {isSubmitting ? "Loading..." : "Sign Up"}
         </Buttons>
       </form>
-      <div className="inline-flex gap-3 items-center justify-center w-full mt-5">
+      <div className="inline-flex gap-1 items-center w-full mt-5">
         <p className="text-xs">Already have an account?</p>
-        <Link to="/login" className="text-xs text-red-400 font-semibold">
+        <Link to="/login" className="text-xs text-indigo-500 font-semibold">
           Sign in
         </Link>
       </div>

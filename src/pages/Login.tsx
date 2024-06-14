@@ -51,24 +51,30 @@ const Login = () => {
         <Notification message={errors.root.message} type="error" />
       )}
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Inputs
-          name="username"
-          register={register}
-          label="username"
-          error={errors?.username?.message}
-          type="text"
-        />
-        <Inputs
-          name="password"
-          register={register}
-          label="Password"
-          error={errors?.password?.message}
-          type="password"
-        />
-        <div className="flex flex-row items-center justify-between text-sm">
-          <Link to="/" className="text-black text-xs">
+        <Inputs>
+          <Inputs.Label label="Username" htmlFor="username" />
+          <Inputs.Input
+            name="username"
+            id="username"
+            register={register}
+            placeholder="username"
+            error={errors?.username?.message}
+            type="text"
+          />
+          <Inputs.Label label="Password" htmlFor="password" />
+          <Inputs.Input
+            name="password"
+            id="password"
+            register={register}
+            placeholder="Password"
+            error={errors?.password?.message}
+            type="password"
+          />
+        </Inputs>
+        <div className="flex flex-row items-center justify-end text-sm">
+          {/* <Link to="/" className="text-black text-xs">
             Remember me
-          </Link>
+          </Link> */}
           <Link
             to="/"
             className="font-semibold text-indigo-600 hover:text-indigo-500 hover:scale-105 text-xs"
@@ -83,9 +89,9 @@ const Login = () => {
           {isSubmitting ? "Loading..." : "Log In"}
         </Buttons>
       </form>
-      <div className="inline-flex gap-3 items-center justify-center w-full mt-5">
+      <div className="inline-flex gap-1 items-center w-full mt-5">
         <p className="text-xs">Don't have an account?</p>
-        <Link to="/register" className="text-xs text-red-400 font-semibold">
+        <Link to="/register" className="text-xs text-indigo-500 font-semibold">
           Sign up
         </Link>
       </div>

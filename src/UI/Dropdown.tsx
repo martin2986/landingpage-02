@@ -3,7 +3,6 @@ import { forwardRef } from "react";
 interface DropdownTypes<T> {
   options: T[];
   title?: string;
-
   className?: string;
 }
 
@@ -12,10 +11,10 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownTypes<string | number>>(
     return (
       <div
         ref={ref}
-        className={`${className} relative bg-white text-black w-full mb-4`}
+        className={`${className} relative bg-white text-black w-fit mb-4`}
       >
-        <p className="block text-xs text-black">{title}</p>
-        <select {...props} className="pr-2 w-fit h-5 outline-none text-xs">
+        <p className="block text-xs text-black font-semibold">{title}</p>
+        <select {...props} className="pr-2 h-5 outline-none text-xs">
           {options.map((item, id) => (
             <option
               value={item}

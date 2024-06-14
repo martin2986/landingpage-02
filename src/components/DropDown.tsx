@@ -5,7 +5,7 @@ import { Buttons } from "../UI/Buttons";
 
 type DropDownProps = {
   options: string[];
-  title: "Location" | "Home type";
+  title: string;
   onDropDown: (value: string) => void;
 };
 

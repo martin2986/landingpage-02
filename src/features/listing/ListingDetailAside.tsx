@@ -16,7 +16,7 @@ const ListingDetailAside = () => {
     setSaved((prev) => !prev);
   };
   return (
-    <div className=" w-1/3 features flex-2 bg-gray-100 h-full overflow-y-auto">
+    <div className=" md:w-1/3 features flex-2 bg-gray-100 h-full overflow-y-auto">
       <div className="wrapper px-2 md:px-5">
         <p className="title font-bold mb-5">General</p>
         <div className="listVertical bg-white p-4 rounded-md my-3">
@@ -38,21 +38,21 @@ const ListingDetailAside = () => {
         </div>
         <p className="title">Sizes</p>
         <div className="sizes flex justify-between my-3">
-          <div className="size flex items-center gap-4 bg-white p-1.5 rounded-md">
+          <div className="size flex items-center gap-4 bg-white p-1 rounded-md">
             <MdOutlinePhotoSizeSelectSmall />
-            <span className="text-xs">23 sqft</span>
+            <span className="text-xxs lg:text-xs">23 sqft</span>
           </div>
-          <div className="size flex items-center gap-4 bg-white p-1.5 rounded-md">
+          <div className="size flex items-center gap-4 bg-white p-1 rounded-md">
             <IoBedOutline />
-            <span className="text-xs">2 beds</span>
+            <span className="text-xxs lg:text-xs">2 beds</span>
           </div>
-          <div className="size flex items-center gap-4 bg-white p-1.5 rounded-md">
+          <div className="size flex items-center gap-4 bg-white p-1 rounded-md">
             <FaShower />
-            <span className="text-xs">5 bathroom</span>
+            <span className="text-xxs lg:text-xs">5 bathroom</span>
           </div>
         </div>
         <p className="title ">Nearby Places</p>
-        <div className="listHorizontal flex flex-col md:flex-row gap-5 p-1 bg-white rounded-md my-3">
+        <div className="listHorizontal flex gap-5 justify-between p-1 bg-white rounded-md my-3">
           <TitleWIthDesc title="School" desc="100m away" sm />
           <TitleWIthDesc title="Bus Stop" desc="100m away" sm />
           <TitleWIthDesc title="Restaurant" desc="100m away" sm />

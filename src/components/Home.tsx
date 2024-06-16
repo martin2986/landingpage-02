@@ -1,8 +1,7 @@
-import { FC } from "react";
-import { motion } from "framer-motion";
-import { Buttons } from "../UI/Buttons";
-import HeroListItem from "../components/HeroListItem";
-import heroImage from "@/assets/hero.png";
+import heroImage from '@/assets/hero.png';
+import SearchListing from '@/features/Homepage/SearchListing';
+import { motion } from 'framer-motion';
+import { FC } from 'react';
 let easeing: number[] = [0.6, -0.05, 0.01, 0.99];
 
 const fadeInUp = {
@@ -65,26 +64,13 @@ const Home: FC<HomeProps> = () => {
       className="relative  bg-gray-100 p-1 md:p-0"
     >
       <motion.div className="container  mx-auto  flex flex-row gap-2 md:gap-8 pt-5 md:pt-16 ">
-        <motion.div
-          variants={heroText}
-          initial="initial"
-          animate="animate"
-          className="flex-initial w-3/5 "
-        >
-          <motion.h1
-            variants={heroTitle}
-            className="text-2xl md:text-5xl font-bold"
-          >
+        <motion.div variants={heroText} initial="initial" animate="animate" className="flex-initial w-3/5 ">
+          <motion.h1 variants={heroTitle} className="text-2xl md:text-5xl font-bold">
             Find your dream Home right now
           </motion.h1>
           <motion.p variants={fadeInUp} className="text-xs md:text-sm my-5 ">
-            We are real estate company we help you search your dream house near
-            your working. Let's talk to discus
+            We are real estate company we help you search your dream house near your working. Let's talk to discus
           </motion.p>
-          <motion.div className=" text-nowrap">
-            <Buttons title="Get Started" className="mr-2" />
-            <Buttons title="Demo Video" variant="borderless" />
-          </motion.div>
         </motion.div>
 
         <motion.div className="flex-initial  ">
@@ -99,13 +85,7 @@ const Home: FC<HomeProps> = () => {
         </motion.div>
       </motion.div>
 
-      <div className="container mx-auto">
-        <div className="  inline-flex gap-3 flex-wrap my-16">
-          <HeroListItem title="Experienced engineer" />
-          <HeroListItem title="Qualityfull materials" />
-          <HeroListItem title="Affordable prices" />
-        </div>
-      </div>
+      <SearchListing />
     </motion.div>
   );
 };

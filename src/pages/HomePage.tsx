@@ -1,10 +1,9 @@
-import { FC } from "react";
-import HeroListItem from "../components/HeroListItem";
-import { Buttons } from "../UI/Buttons";
-import Home from "../components/Home";
-import Section from "../components/Section";
-import SectionTItle from "../components/SectionTItle";
-import Services from "../components/Services";
+import { FC } from 'react';
+import HeroListItem from '../components/HeroListItem';
+import { Buttons } from '../UI/Buttons';
+import Home from '../components/Home';
+import Section from '../components/Section';
+import SectionTItle from '../components/SectionTItle';
 type HomeProps = {};
 
 const HomePage: FC<HomeProps> = () => {
@@ -26,7 +25,7 @@ const HomePage: FC<HomeProps> = () => {
           />
           <Buttons title="Read More" />
         </Section>
-        <Services />
+        {/* <Services /> */}
         <Section
           type="right"
           image2="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -54,10 +53,8 @@ const HomePage: FC<HomeProps> = () => {
             description="Building a next generation collaboration platform to connect renters, homeowner, and agents."
           />
           <p className="text-xs md:text-sm text-gray-500 my-7">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet
-            dolor eos doloremque nihil explicabo, laboriosam ducimus tenetur
-            molestiae at ipsum perspiciatis maiores aut tempora ipsa voluptas
-            quia quasi recusandae?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet dolor eos doloremque nihil explicabo, laboriosam ducimus
+            tenetur molestiae at ipsum perspiciatis maiores aut tempora ipsa voluptas quia quasi recusandae?
           </p>
           <Buttons title="Calculate Payments" />
         </Section>

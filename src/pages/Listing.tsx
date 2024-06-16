@@ -1,15 +1,16 @@
-import Search from "@/features/listing/Search";
-import { CiBookmark } from "react-icons/ci";
-import { BsChatLeftDots } from "react-icons/bs";
-import { useState } from "react";
-import logo from "@/assets/hero.png";
-import { IoBedOutline } from "react-icons/io5";
-import { FaShower } from "react-icons/fa";
-import { MdOutlineLocationOn } from "react-icons/md";
+import Search from '@/features/listing/Search';
+import { CiBookmark } from 'react-icons/ci';
+import { BsChatLeftDots } from 'react-icons/bs';
+import { useState } from 'react';
+import logo from '@/assets/hero.png';
+import { IoBedOutline } from 'react-icons/io5';
+import { FaShower } from 'react-icons/fa';
+import { MdOutlineLocationOn } from 'react-icons/md';
+import Map from '@/lib/Map';
 const Listing = () => {
   const [saved, setSaved] = useState(false);
   return (
-    <div className="container mx-auto my-3 flex flex-col md:flex-row">
+    <div className="container mx-auto my-3 flex flex-col md:flex-row h-screen w-screen gap-3 ">
       <div className="md:w-8/12 px-2 md:px-0 h-full">
         <Search />
         <div className="flex h-32 gap-3">
@@ -21,9 +22,7 @@ const Listing = () => {
                 <MdOutlineLocationOn />
                 456 Avenue, London
               </address>
-              <p className="text-xs mb-1 bg-indigo-500 w-fit px-1 rounded-sm text-white">
-                $1000
-              </p>
+              <p className="text-xs mb-1 bg-indigo-500 w-fit px-1 rounded-sm text-white">$1000</p>
             </div>
             <div className="flex justify-between items-center text-xs ">
               <div className="flex items-center gap-3">
@@ -40,9 +39,7 @@ const Listing = () => {
                 <span
                   onClick={() => setSaved((prev) => !prev)}
                   className={`${
-                    saved
-                      ? "bg-indigo-500 text-white border-indigo-500 scale-110"
-                      : ""
+                    saved ? 'bg-indigo-500 text-white border-indigo-500 scale-110' : ''
                   } border border-gray-300 hover:border-indigo-500 p-0.5 cursor-pointer rounded-sm hover:bg-indigo-500  hover:text-white transition ease-in-out duration-300`}
                 >
                   <CiBookmark className="w-4 h-3 " />
@@ -55,7 +52,11 @@ const Listing = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto my-5  md:w-1/3 flex-2 bg-gray-100 h-full"></div>
+      <div className="container mx-auto   md:w-1/3  flex-2 ">
+        <div className="w-full h-full ">
+          <Map />
+        </div>
+      </div>
     </div>
   );
 };

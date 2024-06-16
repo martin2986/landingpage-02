@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef } from 'react';
 
 interface DropdownTypes<T> {
   options: T[];
@@ -6,28 +6,23 @@ interface DropdownTypes<T> {
   className?: string;
 }
 
-const Dropdown = forwardRef<HTMLDivElement, DropdownTypes<string | number>>(
-  ({ options = [], title = "", className, ...props }, ref) => {
-    return (
-      <div
+const Dropdown = forwardRef<HTMLSelectElement, DropdownTypes<string | number>>(({ options = [], title = '', className, ...props }, ref) => {
+  return (
+    <div className="mt-1">
+      <p className="text-xs md:text-sm font-medium text-black">{title}</p>
+      <select
         ref={ref}
-        className={`${className} relative bg-white text-black w-fit mb-4`}
+        className="w-10 md:w-14 h-6 lg:h-10 lg:w-20 border border-gray-300 shadow-sm outline-none text-xs lg:p-2 mb-4 "
+        {...props}
       >
-        <p className="block text-xs text-black font-semibold">{title}</p>
-        <select {...props} className="pr-2 h-5 outline-none text-xs">
-          {options.map((item, id) => (
-            <option
-              value={item}
-              key={id}
-              className="hover:bg-gray-100 p-2 w-full h-36 overflow-y-auto"
-            >
-              {item}
-            </option>
-          ))}
-        </select>
-      </div>
-    );
-  }
-);
+        {options.map((item, id) => (
+          <option value={item} key={id}>
+            {item}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+});
 
 export default Dropdown;

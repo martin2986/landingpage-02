@@ -1,9 +1,9 @@
-import { SlLocationPin } from "react-icons/sl";
-import Slider from "@/components/Slider";
-import logo from "@/assets/logo.png";
-import hero from "@/assets/hero.png";
-import ListingDetailAside from "../features/listing/ListingDetailAside";
-import { useAppSelector } from "@/store/hooks";
+import { SlLocationPin } from 'react-icons/sl';
+import Slider from '@/components/Slider';
+import logo from '@/assets/logo.png';
+import hero from '@/assets/hero.png';
+import ListingDetailAside from '../features/listing/ListingDetailAside';
+import { useAppSelector } from '@/store/hooks';
 
 const ListingDetailPage = () => {
   const { user } = useAppSelector((state) => state.auth);
@@ -21,14 +21,10 @@ const ListingDetailPage = () => {
 
                   <address className="text-xs">Address</address>
                 </div>
-                <div className="text-sm">price</div>
+                <div className="text-sm bg-gray-100 w-fit p-0.5 px-1 rounded">$ 1200</div>
               </div>
-              <div className="user flex flex-col items-center justify-center p-0 lg:py-4 lg:px-10 bg-gray-100 rounded-md font-semibold">
-                <img
-                  src={user.profilePhoto}
-                  alt=""
-                  className="w-12 h-12 rounded-full object-cover"
-                />
+              <div className="user flex flex-col items-center justify-center p-0 lg:py-4 lg:px-10 bg-gray-100  rounded-md font-semibold">
+                <img src={user.profilePhoto} alt="" className="w-12 h-12 rounded-full object-cover" />
                 <span>{user.username}</span>
               </div>
             </div>
